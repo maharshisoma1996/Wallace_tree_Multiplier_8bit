@@ -18,12 +18,12 @@ This repository presents the design of 8bit Wallace Tree Multiplier implemented 
    * [Full Adder Module](#Full-Adder-Module)
    * [CMOS 8X1 Multiplier](#CMOS-8X1-Multiplier)
    * [Design Approach](#Design-Approach)
-   * [LAYER_1(Group-1) Reduction](#LAYER_1(Group-1)-Reduction)
-   * [LAYER_1(Group-2) Reduction](#LAYER_1(Group-2)-Reduction)
-   * [LAYER_1(Group-3) Reduction](#LAYER_1(Group-3)-Reduction)
-   * [LAYER_2(Group-4) Reduction](#LAYER_2(Group-4)-Reduction)
-   * [LAYER_2(Group-5) Reduction](#LAYER_2(Group-5)-Reduction)
-   * [LAYER_3(Group-6,7) Reduction](#LAYER_3(Group-6,7)-Reduction)
+   * [LAYER_1_Group_1 Reduction](#LAYER_1_Group_1-Reduction)
+   * [LAYER_1_Group_2 Reduction](#LAYER_1_Group_2-Reduction)
+   * [LAYER_1_Group_3 Reduction](#LAYER_1_Group_3-Reduction)
+   * [LAYER_2_Group_4 Reduction](#LAYER_2_Group_4-Reduction)
+   * [LAYER_2_Group_5 Reduction](#LAYER_2_Group_5-Reduction)
+   * [LAYER_3_Group_6_7 Reduction](#LAYER_3_Group_6_7-Reduction)
    * [LAYER_4 Reduction](#LAYER_4-Reduction)
    * [Ripple Carry Adder](#Ripple-Carry-Adder)
    * [Multiplication Module](#Multiplication-Module)
@@ -230,7 +230,7 @@ Reduction layers consists of Full adders and half adders.
 
 In the final stage, we have less than 3 wires having same weights. To get final result we can use ripple carry adder or a carry look a head adder to reduce it to 1bit for each weight.
 
-## LAYER_1(Group-1) Reduction 
+## LAYER_1_Group_1 Reduction 
 The design implemeted in the below schematic reduces A0B, A1B, A2B partial products. This layer uses 3 8x1-Multipliers, Halfadders and Fulladders.
 
 <p align="center">
@@ -241,7 +241,7 @@ The design implemeted in the below schematic reduces A0B, A1B, A2B partial produ
 </p>
 
 
-## LAYER_1(Group-2) Reduction 
+## LAYER_1_Group_2 Reduction 
 The design implemeted in the below schematic reduces A3B, A4B, A5B partial products. It uses 3 8x1-Multipliers, Halfadders and Fulladders.
 
 <p align="center">
@@ -251,7 +251,7 @@ The design implemeted in the below schematic reduces A3B, A4B, A5B partial produ
   GROUP-2 REDUCTION SCHEMATIC <br />
 </p>
 
-## LAYER_1(Group-3) Reduction
+## LAYER_1_Group_3 Reduction
 
 In the below shown schematic, module generates partial product terms A6B and A7B.
 These Partial products are passed to next layer for reduction. This layer uses only Halfadders and Fulladders.
@@ -263,7 +263,7 @@ These Partial products are passed to next layer for reduction. This layer uses o
   GROUP-3 PARTIAL PRODUCTS GENERATION SCHEMATIC <br />
 </p>
 
-## LAYER_2(Group-4) Reduction
+## LAYER_2_Group_4 Reduction
 The outputs obtained from LAYER_1(Group-1) and the sum terms obtained from LAYER_1(Group-2) are grouped to form group-5.
 Below schematic shows the implementation of reduction circuit for group-4 elements. All the subsequent layers uses only Halfadders and Fulladders.
  
@@ -274,7 +274,7 @@ Below schematic shows the implementation of reduction circuit for group-4 elemen
   GROUP-4 REDUCTION SCHEMATIC <br />
 </p>
 
-## LAYER_2(Group-5) Reduction
+## LAYER_2_Group_5 Reduction
 The outputs obtained from LAYER_1(Group-3) and the carry terms obtained from LAYER_1(Group-2) are grouped to form group-5.
 Below schematic shows the implementation of reduction circuit for group-5 elements.
  
@@ -285,7 +285,7 @@ Below schematic shows the implementation of reduction circuit for group-5 elemen
   GROUP-5 REDUCTION SCHEMATIC <br />
 </p>
 
-## LAYER_3(Group-6,7) Reduction
+## LAYER_3_Group_6_7 Reduction
 All the terms obtained from LAYER_2 are grouped into group-6 and Group-7.
 Group-6 is reduced in LAYER_3, Group-7 is passed to next layer for reduction.
 
