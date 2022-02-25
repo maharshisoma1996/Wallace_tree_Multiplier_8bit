@@ -145,7 +145,7 @@ Lets consider multiplication of 2 4bit numbers
 
 
 <p align="Center">
-  <img src="files/and gate.JPG" width="700" height="500" />
+  <img src="files/and gate.JPG" width="700" height="500" /><br />
   AND GATE SCHEMATIC<br />
   
 </p>
@@ -154,7 +154,7 @@ Lets consider multiplication of 2 4bit numbers
 ## CMOS OR Gate 
 
 <p align="center">
-  <img src="files/or gate.JPG" width="700" height="500" />
+  <img src="files/or gate.JPG" width="700" height="500" /><br />
   OR GATE SCHEMATIC<br />
   
 </p>
@@ -163,7 +163,7 @@ Lets consider multiplication of 2 4bit numbers
 
 ## CMOS XOR Gate
 <p align="center">
-  <img src="files/xor gate.JPG" width="700" height="500" />
+  <img src="files/xor gate.JPG" width="700" height="500" /><br />
   XOR GATE SCHEMATIC<br />
   
 </p>
@@ -172,7 +172,7 @@ Lets consider multiplication of 2 4bit numbers
 
 ## CMOS NOT Gate 
 <p align="center">
-  <img src="files/not gate.JPG" width="600" height="500" />
+  <img src="files/not gate.JPG" width="600" height="500" /><br />
   NOT GATE SCHEMATIC<br />
   
 </p>
