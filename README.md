@@ -6,8 +6,8 @@ This repository presents the design of 8bit Wallace Tree Multiplier implemented 
 
 
 ##  Table Of Content
-   * [Abstract](##Abstract)
-   * [Detailed Explanation](##Detailed-Explanation)
+   * [Abstract](#Abstract)
+   * [Detailed Explanation](#Detailed-Explanation)
    * [Reference Circuit](#Reference-Circuit)
    * [Tools Used](#Tools-Used)
    * [CMOS AND Gate](#CMOS-AND-Gate)
