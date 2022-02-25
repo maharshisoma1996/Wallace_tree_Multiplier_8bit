@@ -345,13 +345,13 @@ Feed the outputs obtained from LAYER_4 to the ripple carry adder to get the fina
 <p align="center">
 <img width="800"
   src="files/sim2.JPG"><br />
-  SIMULATION RESULT-2<br />
+  SIMULATION-RESULT-2<br />
 </p>
 
 <p align="center">
 <img width="800"
   src="files/sim3.JPG"><br />
-  SIMULATION RESULT-3<br />
+  SIMULATION-RESULT-3<br />
 </p>
 
 
