@@ -1,0 +1,412 @@
+*  Generated for: PrimeSim
+*  Design library name: my_lib
+*  Design cell name: MULTIPLIER_8x8bit_TEST_1
+*  Design view name: schematic
+.lib 'saed32nm.lib' TT
+
+*Custom Compiler Version S-2021.09
+*Thu Feb 24 16:22:10 2022
+
+.global gnd!
+********************************************************************************
+* Library          : my_lib
+* Cell             : AND
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt and a b y
+xm4 y net11 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm1 net11 a net7 net7 n105 w=0.1u l=0.03u nf=1 m=1
+xm0 net7 b gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm5 y net11 net9 net9 p105 w=0.1u l=0.03u nf=1 m=1
+xm3 net11 a net9 net9 p105 w=0.1u l=0.03u nf=1 m=1
+xm2 net11 b net9 net9 p105 w=0.1u l=0.03u nf=1 m=1
+vdd net9 gnd! dc=1.05
+.ends and
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : and_8_1
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt and_8_1 a0 b0 b1 b2 b3 b4 b5 b6 b7 y0 y1 y2 y3 y4 y5 y6 y7
+xb7 a0 b7 y7 and
+xb6 a0 b6 y6 and
+xb4 a0 b5 y5 and
+xi0 a0 b4 y4 and
+xb3 a0 b3 y3 and
+xb2 a0 b2 y2 and
+xb1 a0 b1 y1 and
+xb0 a0 b0 y0 and
+.ends and_8_1
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : NOT
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt not a y
+xm0 y a gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm1 y a net9 net9 p105 w=0.1u l=0.03u nf=1 m=1
+v2 net9 gnd! dc=01.05
+.ends not
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : XOR
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt xor a b y
+xi1 a net37 not
+xi0 b net12 not
+xm5 net40 b gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm4 y a net40 net40 n105 w=0.1u l=0.03u nf=1 m=1
+xm3 net39 net12 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm2 y net37 net39 net39 n105 w=0.1u l=0.03u nf=1 m=1
+xm9 net35 a net34 net34 p105 w=0.1u l=0.03u nf=1 m=1
+xm8 net35 b net34 net34 p105 w=0.1u l=0.03u nf=1 m=1
+xm7 y net12 net35 net35 p105 w=0.1u l=0.03u nf=1 m=1
+xm6 y net37 net35 net35 p105 w=0.1u l=0.03u nf=1 m=1
+v10 net34 gnd! dc=01.05
+.ends xor
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : HALF_ADDER
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt half_adder co i0 i1 sum
+xor i0 i1 sum xor
+xand i0 i1 co and
+.ends half_adder
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : OR
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt or a b y
+xm2 y net17 net25 net25 p105 w=0.1u l=0.03u nf=1 m=1
+xm1 net17 b net5 net5 p105 w=0.1u l=0.03u nf=1 m=1
+xm0 net5 a net25 net25 p105 w=0.1u l=0.03u nf=1 m=1
+xm5 net17 b gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm4 net17 a gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm3 y net17 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+v6 net25 gnd! dc=1.05
+.ends or
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : FULL_ADDER
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt full_adder a b c co sum
+xi1 net11 net7 c sum half_adder
+xi0 net10 a b net7 half_adder
+xi2 net10 net11 co or
+.ends full_adder
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_1
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_1 a0 a1 a2 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2 s3 s4 s5 s6 s7
++  s8 s9 s_2 s_3 s_4 s_5 s_6 s_7 s_8 s_9
+xa2b a2 b0 b1 b2 b3 b4 b5 b6 b7 net64 net69 net74 net79 net84 net89 net59 s9
++ and_8_1
+xa1b a1 b0 b1 b2 b3 b4 b5 b6 b7 net55 net63 net68 net73 net78 net83 net88 net58
++ and_8_1
+xa0b a0 b0 b1 b2 b3 b4 b5 b6 b7 s0 net54 net62 net67 net72 net77 net82 net87
++ and_8_1
+xi0 s_9 net58 net59 s8 half_adder
+xha2 s_2 net54 net55 s1 half_adder
+xfa8 net87 net88 net89 s_8 s7 full_adder
+xfa7 net82 net83 net84 s_7 s6 full_adder
+xfa6 net77 net78 net79 s_6 s5 full_adder
+xfa5 net72 net73 net74 s_5 s4 full_adder
+xfa4 net67 net68 net69 s_4 s3 full_adder
+xfa3 net62 net63 net64 s_3 s2 full_adder
+.ends part_prod_grp_1
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_2
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_2 a3 a4 a5 b0 b1 b2 b3 b4 b5 b6 b7 s3 s4 s5 s6 s7 s8 s9
++ s10 s11 s12 s_5 s_6 s_7 s_8 s_9 s_10 s_11 s_12
+xa2b a5 b0 b1 b2 b3 b4 b5 b6 b7 net64 net69 net74 net79 net84 net89 net59 s12
++ and_8_1
+xa1b a4 b0 b1 b2 b3 b4 b5 b6 b7 net55 net63 net68 net73 net78 net83 net88 net58
++ and_8_1
+xa0b a3 b0 b1 b2 b3 b4 b5 b6 b7 s3 net54 net62 net67 net72 net77 net82 net87
++ and_8_1
+xi0 s_12 net58 net59 s11 half_adder
+xha2 s_5 net54 net55 s4 half_adder
+xfa8 net87 net88 net89 s_11 s10 full_adder
+xfa7 net82 net83 net84 s_10 s9 full_adder
+xfa6 net77 net78 net79 s_9 s8 full_adder
+xfa5 net72 net73 net74 s_8 s7 full_adder
+xfa4 net67 net68 net69 s_7 s6 full_adder
+xfa3 net62 net63 net64 s_6 s5 full_adder
+.ends part_prod_grp_2
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_3
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_3 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s6 s7 s8 s9 s10 s11 s12
++ s13 s_7 s_8 s_9 s_10 s_11 s_12 s_13 s_14
+xa7b a7 b0 b1 b2 b3 b4 b5 b6 b7 s_7 s_8 s_9 s_10 s_11 s_12 s_13 s_14 and_8_1
+xa6b a6 b0 b1 b2 b3 b4 b5 b6 b7 s6 s7 s8 s9 s10 s11 s12 s13 and_8_1
+.ends part_prod_grp_3
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_4
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_4 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2
++  s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s_3 s_4 s_5 s_5_1 s_6 s_6_1 s_7
++ s_7_1 s_7_2 s_8 s_8_1 s_8_2 s_9 s_9_1 s_9_2 s_10 s_10_1 s_10_2 s_11_1 s_11_2
++ s_12_1 s_12_2 s_13_1 s_14
+xi0 a0 a1 a2 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 net114 net118 net123 net127 net132
++ net138 net142 net147 net113 net117 net122 net128 net133 net137 net143 net148
++ part_prod_grp_1
+xi1 a3 a4 a5 b0 b1 b2 b3 b4 b5 b6 b7 net119 net124 net129 net41 b6 net144 net149
++ s10 s11 s12 s_5_1 net187 net182 net177 net172 net167 net162 net157
++ part_prod_grp_2
+xi3 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 net188 net183 net178 net173 net168 net163
++ net158 net92 net184 net179 net174 net169 net164 net159 net192 s14
++ part_prod_grp_3
+xi10 s_7_1 net187 net188 s_6_1 half_adder
+xi11 s_14 net92 net192 s13 half_adder
+x1 s_3 net113 net114 s2 half_adder
+xi9 net182 net183 net184 s_8_1 s_7_2 full_adder
+xi8 net177 net178 net179 s_9_1 s_8_2 full_adder
+xi7 net172 net173 net174 s_10_1 s_9_2 full_adder
+xi6 net167 net168 net169 s_11_1 s_10_2 full_adder
+xi5 net162 net163 net164 s_12_1 s_11_2 full_adder
+x88 net157 net158 net159 s_13_1 s_12_2 full_adder
+x8 net147 net148 net149 s_10 s9 full_adder
+x7 net142 net143 net144 s_9 s8 full_adder
+x6 net137 net138 b6 s_8 s7 full_adder
+x5 net132 net133 net41 s_7 s6 full_adder
+x4 net127 net128 net129 s_6 s5 full_adder
+x3 net122 net123 net124 s_5 s4 full_adder
+x2 net117 net118 net119 s_4 s3 full_adder
+.ends part_prod_grp_4
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_5
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_5 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2
++  s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s_4 s_5 s_6 s_7 s_7_2 s_8 s_8_2 s_9
++ s_9_2 s_10 s_10_2 s_11 s_11_2 s_12 s_12_2 s_13 s_13_1 s_14
+xi0 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2 net107 net111
++ net123 net128 net133 net138 net143 net148 net116 net119 s13 s14 net108 net112
++ net124 net125 net129 net130 net134 net135 s_7_2 net139 net140 s_8_2 net144
++ net145 s_9_2 net149 net150 s_10_2 net115 s_11_2 net120 s_12_2 s_13_1 s_14
++ part_prod_grp_4
+xi17 net133 net134 net135 s_8 s7 full_adder
+xi18 net138 net139 net140 s_9 s8 full_adder
+xi19 net143 net144 net145 s_10 s9 full_adder
+xi20 net148 net149 net150 s_11 s10 full_adder
+xi15 net123 net124 net125 s_6 s5 full_adder
+xi16 net128 net129 net130 s_7 s6 full_adder
+xi11 s_4 net107 net108 s3 half_adder
+xi12 s_5 net111 net112 s4 half_adder
+xi13 s_12 net115 net116 s11 half_adder
+xi14 s_13 net119 net120 s12 half_adder
+.ends part_prod_grp_5
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_6
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_6 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2
++  s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s_5 s_6 s_7 s_8 s_9 s_10 s_11 s_12
++ s_13 s_14 s_15
+xi0 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2 s3 net52 net56
++ net60 net68 net73 net78 net83 net88 net93 net98 net64 net53 net57 net61 net69
++ net70 net74 net75 net79 net80 net84 net85 net89 net90 net94 net95 net99 net100
++ net65 part_prod_grp_5
+xi4 s_15 net64 net65 s14 half_adder
+xi3 s_7 net60 net61 s6 half_adder
+xi2 s_6 net56 net57 s5 half_adder
+xi1 s_5 net52 net53 s4 half_adder
+xi11 net98 net99 net100 s_14 s13 full_adder
+xi10 net93 net94 net95 s_13 s12 full_adder
+xi9 net88 net89 net90 s_12 s11 full_adder
+xi8 net83 net84 net85 s_11 s10 full_adder
+xi7 net78 net79 net80 s_10 s9 full_adder
+xi6 net73 net74 net75 s_9 s8 full_adder
+xi5 net68 net69 net70 s_8 s7 full_adder
+.ends part_prod_grp_6
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : PART_PROD_GRP_7
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt part_prod_grp_7 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2
++  s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s_6 s_7 s_8 s_9 s_10 s_11 s_12
++ s_13 s_14 s_15
+xi0 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 s0 s1 s2 s3 s4 net50 net91
++ net58 net62 net66 net70 net74 net77 net82 net86 net49 net90 net57 net61 net65
++ net69 net73 net78 net81 net2 s15 part_prod_grp_6
+xi11 s_15 net2 net86 s14 half_adder
+xi10 s_14 net81 net82 s13 half_adder
+xi9 s_13 net77 net78 s12 half_adder
+xi8 s_12 net73 net74 s11 half_adder
+xi7 s_11 net69 net70 s10 half_adder
+xi6 s_10 net65 net66 s9 half_adder
+xi5 s_9 net61 net62 s8 half_adder
+xi4 s_8 net57 net58 s7 half_adder
+xi3 s_7 net90 net91 s6 half_adder
+xi2 s_6 net49 net50 s5 half_adder
+.ends part_prod_grp_7
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : ADDER_CKT_FINAL_STAGE
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt adder_ckt_final_stage m6 m7 m8 m9 m10 m11 m12 m13 m14 m15 m16 s6 s7 s8
++ s9 s10 s11 s12 s13 s14 s15 s_6 s_7 s_8 s_9 s_10 s_11 s_12 s_13 s_14 s_15
+xi9 net48 s_11 s11 net46 m11 full_adder
+xi8 net46 s_12 s12 net41 m12 full_adder
+xi7 net41 s_13 s13 net36 m13 full_adder
+xi6 net36 s14 s_14 net31 m14 full_adder
+xi5 net31 s_15 s15 m16 m15 full_adder
+xi4 s10 s_10 net25 net48 m10 full_adder
+xi3 s9 s_9 net20 net25 m9 full_adder
+xi2 s8 s_8 net15 net20 m8 full_adder
+xi1 s7 s_7 net51 net15 m7 full_adder
+xi10 net51 s6 s_6 m6 half_adder
+.ends adder_ckt_final_stage
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : MULTIPLIER_8x8bit
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt multiplier_8x8bit a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 m0 m1
++ m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15 m16
+xi0 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 m0 m1 m2 m3 m4 m5 net54
++ net55 net56 net57 net58 net59 net60 net61 net62 net63 net64 net65 net66 net67
++ net68 net69 net70 net71 net72 net73 part_prod_grp_7
+xi1 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15 m16 net54 net55 net56 net57 net58 net59
++ net60 net61 net62 net63 net64 net65 net66 net67 net68 net69 net70 net71 net72
++ net73 adder_ckt_final_stage
+.ends multiplier_8x8bit
+
+********************************************************************************
+* Library          : my_lib
+* Cell             : MULTIPLIER_8x8bit_TEST_1
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xi0 a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7 mo m1 m2 m3 m4 m5 m6 m7 m8
++ m9 m10 m11 m12 m13 m14 m15 m16 multiplier_8x8bit
+v41 a3 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 4u 8u )
+v39 a1 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 2u 4u )
+v38 a0 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 1u 2u )
+v40 a2 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 3u 6u )
+v42 a4 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 5u 8u )
+v43 a5 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 5u 8u )
+v44 a6 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 2u 4u )
+v45 a7 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 5u 10u )
+v46 b0 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 10u 20u )
+v47 b2 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 10u 20u )
+v48 b4 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 10u 20u )
+v49 b3 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 11u 22u )
+v50 b5 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 9u 18u )
+v51 b1 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 9u 18u )
+v52 b6 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 20u 40u )
+v53 b7 gnd! dc=0 pulse ( 0 1.05 0 0.1u 0.1u 20u 40u )
+c37 m16 gnd! c=1p
+c36 m15 gnd! c=1p
+c35 m14 gnd! c=1p
+c34 m13 gnd! c=1p
+c33 m12 gnd! c=1p
+c32 m11 gnd! c=1p
+c31 m10 gnd! c=1p
+c30 m9 gnd! c=1p
+c29 m8 gnd! c=1p
+c28 m7 gnd! c=1p
+c27 m6 gnd! c=1p
+c26 m5 gnd! c=1p
+c25 m4 gnd! c=1p
+c24 m3 gnd! c=1p
+c23 m2 gnd! c=1p
+c22 m1 gnd! c=1p
+c21 mo gnd! c=1p
+
+
+
+
+
+
+
+
+.tran '1U' '50U' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(a0) v(a1) v(a2) v(a3) v(a4) v(a5) v(a6) v(a7) v(b0) v(b1) v(b2)
++ v(b3) v(b4) v(b5) v(b6) v(b7) v(m1) v(m10) v(m11) v(m12) v(m13) v(m14) v(m15)
++ v(m16) v(m2) v(m3) v(m4) v(m5) v(m6) v(m7) v(m8) v(m9) v(mo)
+
+.temp 25
+
+
+
+.option primesim_output=wdf
+
+
+.option parhier = LOCAL
+
+
+
+
+
+
+.end
