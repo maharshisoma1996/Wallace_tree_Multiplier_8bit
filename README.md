@@ -180,7 +180,7 @@ Lets consider multiplication of 2 4bit numbers
 <p align="center">
 <img width="800"
      height="500"
-  src="files/half adder.JPG"></br>
+  src="files/half adder.JPG"><br />
   HALF ADDER USING BASIC GATES <br />
 </p>
 
@@ -189,7 +189,7 @@ Lets consider multiplication of 2 4bit numbers
 <p align="center">
 <img width="800"
      height="600"
-  src="files/full adder.JPG"></br>
+  src="files/full adder.JPG"><br />
  FULL ADDER USING HALF ADDERS <br />
 </p>
 
@@ -200,7 +200,7 @@ Lets consider multiplication of 2 4bit numbers
 <p align="center">
 <img width="800"
      height="600"
-  src="files/multiplier 8_1..JPG"></br>
+  src="files/multiplier 8_1..JPG"><br />
  8x1 MULTIPLIER <br />
 </p>
 
@@ -232,7 +232,7 @@ The design implemeted in the below schematic reduces A0B, A1B, A2B partial produ
 <p align="center">
 <img width="900"
      height="600"
-  src="files/stage1 reduction.JPG"></br>
+  src="files/stage1 reduction.JPG"><br />
   GROUP-1 REDUCTION SCHEMATIC <br />
 </p>
 
@@ -243,7 +243,7 @@ The design implemeted in the below schematic reduces A3B, A4B, A5B partial produ
 <p align="center">
 <img width="900"
      height="600"
-  src="files/group 2.JPG"></br>
+  src="files/group 2.JPG"><br />
   GROUP-2 REDUCTION SCHEMATIC <br />
 </p>
 
@@ -255,7 +255,7 @@ These Partial products are passed to next layer for reduction. This layer uses o
 <p align="center">
 <img width="900"
      height="600"
-  src="files/group 3.JPG"></br>
+  src="files/group 3.JPG"><br />
   GROUP-3 PARTIAL PRODUCTS GENERATION SCHEMATIC <br />
 </p>
 
@@ -266,7 +266,7 @@ Below schematic shows the implementation of reduction circuit for group-4 elemen
 <p align="center">
 <img width="1000"
      height="700"
-  src="files/group 4.JPG"></br>
+  src="files/group 4.JPG"><br />
   GROUP-4 REDUCTION SCHEMATIC <br />
 </p>
 
@@ -277,7 +277,7 @@ Below schematic shows the implementation of reduction circuit for group-5 elemen
 <p align="center">
 <img width="1000"
      height="700"
-  src="files/group 5.JPG"></br>
+  src="files/group 5.JPG"><br />
   GROUP-5 REDUCTION SCHEMATIC <br />
 </p>
 
@@ -289,7 +289,7 @@ Below schematic shows the implementation of reduced circuit for group-6.
 <p align="center">
 <img width="1000"
      height="700"
-  src="files/group 6.JPG"></br>
+  src="files/group 6.JPG"><br />
   GROUP-6 REDUCTION SCHEMATIC 
 </p>
 
@@ -300,7 +300,7 @@ Below schematic shows the implementation of this reduction circuit for this laye
 <p align="center">
 <img width="1000"
      height="700"
-  src="files/group 7.JPG"></br>
+  src="files/group 7.JPG"><br />
   GROUP-7 REDUCTION SCHEMATIC
 </p>
 
@@ -311,7 +311,7 @@ Below schematic shows the implementation of ripple carry adder.
 <p align="center">
 <img width="800"
      height="500"
-  src="files/adder final stage.JPG"></br>
+  src="files/adder final stage.JPG"><br />
   RIPPLE CARRY ADDER
 </p>
 
@@ -321,8 +321,8 @@ Feed the outputs obtained from LAYER_4 to the ripple carry adder to get the fina
 <p align="center">
 <img width="800"
      height="400"
-  src="files/final multiplier.JPG"></br>
-  FINAL MULTIPLIER CIRCUIT 
+  src="files/final multiplier.JPG"><br />
+  FINAL MULTIPLIER CIRCUIT <br />
 </p>
 
 ## Simulations 
@@ -330,14 +330,14 @@ Feed the outputs obtained from LAYER_4 to the ripple carry adder to get the fina
 <p align="center">
 <img width="800"
      height="500"
-  src="files/test_ckt mult.JPG"></br>
-  TEST FOR TRANSIENT ANALYSIS
+  src="files/test_ckt mult.JPG"><br />
+  TEST FOR TRANSIENT ANALYSIS<br />
 </p>
 
 
 <p align="center">
 <img width="800"
-  src="files/sim1.JPG"></br>
+  src="files/sim1.JPG"><br />
   SIMULATION RESULT-1
 </p>
 
