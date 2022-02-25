@@ -144,33 +144,33 @@ Lets consider multiplication of 2 4bit numbers
 
 
 
-<p float="left">
+<p align="Center">
   <img src="files/and gate.JPG" width="700" height="500" />
-  <img src="files/and gate truthtable.JPG" width="300" height="500" />
+  
 </p>
 
 
 ## CMOS OR Gate 
 
-<p float="left">
+<p align="center">
   <img src="files/or gate.JPG" width="700" height="500" />
-  <img src="files/or gate truth table.JPG" width="300" height="500" />
+  
 </p>
 
 
 
 ## CMOS XOR Gate
-<p float="left">
+<p align="center">
   <img src="files/xor gate.JPG" width="700" height="500" />
-  <img src="files/xor gate truthtable.JPG" width="300" height="500" />
+  
 </p>
 
 
 
 ## CMOS NOT Gate 
-<p float="left">
+<p align="center">
   <img src="files/not gate.JPG" width="600" height="500" />
-  <img src="files/not gate truth table.JPG" width="400" height="500" />
+  
 </p>
 
 
